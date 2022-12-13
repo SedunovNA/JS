@@ -1,33 +1,68 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
-function Welcome(props) {
-    // let a = 1;
-    // let b = 9;
-    // let c = a + b;
-    // b +=a + b;
-    // console.log(c, b);
-    const [value, setValue] = useState();
-    return <>
-        
-           <br/> {props.name} {value ? value.target.value : ''}
-        
-        <input type={'text'} onChange={setValue} />
-    </>;
-}
+import Clock from './components/Clock';
+import './App.css';
+import 'animate.css';
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<App />);
+{ new Date().toDateString() }
+{ new Date().toLocaleDateString() }
 function App() {
+    const timer = function () {
+        let time = new Date().toLocaleTimeString()
+        return
+
+    };
+    return <><Clock date={new Date()} />
+    </>
+
+}
+
+export default App;
+
+/*class MarkdownEditor extends React.Component {
+  constructor(props) {
+    super(props);
+    this.md = new Remarkable();
+    this.handleChange = this.handleChange.bind(this);
+    this.state = { value: 'Ïðèâåò, **ìèð**!' };
+  }
+  handleChange(e) {
+    this.setState({ value: e.target.value });
+  }
+  getRawMarkup() {
+    return { __html: md.render(this.state.value) };
+  }
+  render() {
+    return (
+      <div className="MarkdownEditor">
+        <h3>Âõîäíûå äàííûå</h3>
+        <label htmlFor="markdown-content">
+          Ââåäèòå ÷òî-òî â ôîðìàòå Markdown
+        </label>
+        <textarea
+          id="markdown-content"
+          onChange={this.handleChange}
+          defaultValue={this.state.value}
+        />
+        <h3>Âûâîä</h3>
+        <div
+          className="content"
+          dangerouslySetInnerHTML={this.getRawMarkup()}
+        />
+      </div>
+    );
+  }
+  function App() {
     return (
         <div>
-            <Welcome name="FIO:" /> <br/>
+            <Welcome name="FIO:" /> <br />
             <Welcome name="Nomer:" /><br />
             <Welcome name="Email:" /><br />
             <Welcome name="data rogdeniya:" /><br />
             <Welcome name="biografia:" /><br />
         </div>
-            
-       
     );
-
 }
-export default Welcome; 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<App />);
+*/
